@@ -1,23 +1,23 @@
 package com.joker.spzx.model.dto.product;
 
-import com.joker.spzx.model.entity.base.BaseEntity;
+import com.joker.spzx.model.dto.system.PageParam;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 @Data
 @Schema(description = "商品搜索条件实体类")
-public class ProductDto extends BaseEntity {
+public class ProductDto extends PageParam {
 
-    @Schema(description = "品牌id")
-    private Long brandId;
+    @Schema(description = "源头商品名称")
+    private String sourceProductName;
 
-    @Schema(description = "一级分类id")
-    private Long category1Id;
+    @Schema(description = "源头商品编码")
+    private String sourceProductCode;
 
-    @Schema(description = "二级分类id")
-    private Long category2Id;
+    @Schema(description = "货源工厂Id")
+    private Long productFactoryId;
 
     @Schema(description = "三级分类id")
-    private Long category3Id;
+    private Integer steadyStatus;
 
 }

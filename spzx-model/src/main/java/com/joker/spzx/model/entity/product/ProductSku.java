@@ -1,5 +1,7 @@
 package com.joker.spzx.model.entity.product;
 
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableName;
 import com.joker.spzx.model.entity.base.BaseEntity;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
@@ -7,46 +9,60 @@ import lombok.Data;
 import java.math.BigDecimal;
 
 @Data
-@Schema(description = "ProductSku")
+@TableName("product_sku")
+@Schema(name = "ProductSku", description = "商品sku")
 public class ProductSku extends BaseEntity {
 
-	@Schema(description = "商品编号")
-	private String skuCode;
 
-	@Schema(description = "skuName")
-	private String skuName;
+    @Schema(description = "商品编号")
+    @TableField("sku_code")
+    private String skuCode;
 
-	@Schema(description = "商品ID")
-	private Long productId;
+    @TableField("sku_name")
+    private String skuName;
 
-	@Schema(description = "缩略图路径")
-	private String thumbImg;
+    @Schema(description = "商品ID")
+    @TableField("product_id")
+    private Long productId;
 
-	@Schema(description = "售价")
-	private BigDecimal salePrice;
+    @Schema(description = "缩略图路径")
+    @TableField("thumb_img")
+    private String thumbImg;
 
-	@Schema(description = "市场价")
-	private BigDecimal marketPrice;
+    @Schema(description = "售价")
+    @TableField("sale_price")
+    private BigDecimal salePrice;
 
-	@Schema(description = "成本价")
-	private BigDecimal costPrice;
+    @Schema(description = "市场价")
+    @TableField("market_price")
+    private BigDecimal marketPrice;
 
-	@Schema(description = "库存数")
-	private Integer stockNum;
+    @Schema(description = "成本价")
+    @TableField("cost_price")
+    private BigDecimal costPrice;
 
-	@Schema(description = "销量")
-	private Integer saleNum;
+    @Schema(description = "库存数")
+    @TableField("stock_num")
+    private Integer stockNum;
 
-	@Schema(description = "sku规格信息json")
-	private String skuSpec;
+    @Schema(description = "销量")
+    @TableField("sale_num")
+    private Integer saleNum;
 
-	@Schema(description = "重量")
-	private String weight;
+    @Schema(description = "sku规格信息json")
+    @TableField("sku_spec")
+    private String skuSpec;
 
-	@Schema(description = "体积")
-	private String volume;
+    @Schema(description = "重量")
+    @TableField("weight")
+    private BigDecimal weight;
 
-	@Schema(description = "线上状态：0-初始值，1-上架，-1-自主下架")
-	private Integer status;
+    @Schema(description = "体积")
+    @TableField("volume")
+    private BigDecimal volume;
+
+    @Schema(description = "线上状态：0-初始值，1-上架，-1-自主下架")
+    @TableField("status")
+    private Integer status;
 
 }

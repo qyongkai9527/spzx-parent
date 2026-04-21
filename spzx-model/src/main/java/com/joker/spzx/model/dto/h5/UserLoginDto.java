@@ -8,8 +8,8 @@ import lombok.Data;
 public class UserLoginDto {
 
     @Schema(description = "用户名")
-    private String username ;
+    private String username;
 
     @Schema(description = "密码")
-    private String password ;
+    private String password;
 }

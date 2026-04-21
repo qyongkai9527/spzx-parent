@@ -1,22 +1,27 @@
 package com.joker.spzx.model.entity.system;
 
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableName;
 import com.joker.spzx.model.entity.base.BaseEntity;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 @Data
-@Schema(description = "角色实体类")
+@TableName("sys_role")
+@Schema(name = "SysRole", description = "角色")
 public class SysRole extends BaseEntity {
 
-    private static final long serialVersionUID = 1L;
-
     @Schema(description = "角色名称")
+    @TableField("role_name")
     private String roleName;
 
     @Schema(description = "角色编码")
+    @TableField("role_code")
     private String roleCode;
 
     @Schema(description = "描述")
+    @TableField("description")
     private String description;
+
 
 }

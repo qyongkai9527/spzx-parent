@@ -1,43 +1,51 @@
 package com.joker.spzx.model.entity.user;
 
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableName;
 import com.joker.spzx.model.entity.base.BaseEntity;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 @Data
-@Schema(description = "用户地址实体类")
+@TableName("user_address")
+@Schema(name = "UserAddress", description = "用户地址表")
 public class UserAddress extends BaseEntity {
 
-   private static final long serialVersionUID = 1L;
+    @Schema(description = "用户ID")
+    @TableField("user_id")
+    private Integer userId;
 
-   @Schema(description = "用户ID")
-   private Long userId;
+    @TableField("name")
+    private String name;
 
-   @Schema(description = "name")
-   private String name;
+    @Schema(description = "电话")
+    @TableField("phone")
+    private String phone;
 
-   @Schema(description = "电话")
-   private String phone;
+    @Schema(description = "标签名称")
+    @TableField("tag_name")
+    private String tagName;
 
-   @Schema(description = "标签名称")
-   private String tagName;
+    @TableField("province_code")
+    private String provinceCode;
 
-   @Schema(description = "provinceCode")
-   private String provinceCode;
+    @TableField("city_code")
+    private String cityCode;
 
-   @Schema(description = "cityCode")
-   private String cityCode;
+    @TableField("district_code")
+    private String districtCode;
 
-   @Schema(description = "districtCode")
-   private String districtCode;
+    @Schema(description = "详细地址")
+    @TableField("address")
+    private String address;
 
-   @Schema(description = "详细地址")
-   private String address;
+    @Schema(description = "完整地址")
+    @TableField("full_address")
+    private String fullAddress;
 
-   @Schema(description = "完整地址")
-   private String fullAddress;
+    @Schema(description = "是否默认地址（0：否 1：是）")
+    @TableField("is_default")
+    private Byte isDefault;
 
-   @Schema(description = "是否默认地址（0：否 1：是）")
-   private Integer isDefault;
 
 }

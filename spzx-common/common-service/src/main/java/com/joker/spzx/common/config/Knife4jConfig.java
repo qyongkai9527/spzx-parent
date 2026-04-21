@@ -27,7 +27,7 @@ public class Knife4jConfig {
 
         return new OpenAPI()
                 .info(new Info()
-                        .title("尚品甑选API接口文档")
+                        .title("joker电商后台API接口文档")
                         .version("1.0")
                         .description("尚品甑选API接口文档")
                         .contact(new Contact().name("joker"))); // 设定作者

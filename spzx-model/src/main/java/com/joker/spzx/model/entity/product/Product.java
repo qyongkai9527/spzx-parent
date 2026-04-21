@@ -1,65 +1,58 @@
 package com.joker.spzx.model.entity.product;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.joker.spzx.model.entity.base.BaseEntity;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
-import java.util.List;
+import java.math.BigDecimal;
 
 @Data
 @Schema(description = "商品实体类")
 public class Product extends BaseEntity {
 
-	@Schema(description = "商品名称")
-	private String name;					// 商品名称
+    @Schema(description = "货源商品名称")
+    @TableField("source_product_name")
+    private String sourceProductName;
 
-	@Schema(description = "品牌id")
-	private Long brandId;					// 品牌ID
+    @Schema(description = "货源厂商Id")
+    @TableField("product_factory_id")
+    private Long productFactoryId;
 
-	@Schema(description = "一级分类id")
-	private Long category1Id;				// 一级分类id
+    @Schema(description = "货源商品Id")
+    @TableField("source_product_code")
+    private String sourceProductCode;
 
-	@Schema(description = "二级分类id")
-	private Long category2Id;				// 二级分类id
+    @Schema(description = "货源商品链接地址")
+    @TableField("source_product_url")
+    private String sourceProductUrl;
 
-	@Schema(description = "三级分类id")
-	private Long category3Id;				// 三级分类id
+    @Schema(description = "头图链接地址")
+    @TableField("head_img_url")
+    private String headImgUrl;
 
-	@Schema(description = "计量单位")
-	private String unitName;				// 计量单位
+    @Schema(description = "发货物流公司")
+    @TableField("logistics_name")
+    private String logisticsName;
 
-	@Schema(description = "轮播图url")
-	private String sliderUrls;				// 轮播图
+    @Schema(description = "运费")
+    @TableField("freight_cost")
+    private BigDecimal freightCost;
 
-	@Schema(description = "商品规格值json串")
-	private String specValue;				// 商品规格值json串
+    @Schema(description = "发货时长")
+    @TableField("dispatch_time")
+    private Integer dispatchTime;
 
-	@Schema(description = "线上状态：0-初始值，1-上架，-1-自主下架")
-	private Integer status;					// 线上状态：0-初始值，1-上架，-1-自主下架
+    @Schema(description = "稳定状态：1-稳定，1-不太稳定，3-不稳定")
+    @TableField("steady_status")
+    private Integer steadyStatus;
 
-	@Schema(description = "审核状态")
-	private Integer auditStatus;			// 审核状态
+    @Schema(description = "创建人")
+    @TableField("create_by")
+    private Long createBy;        // 审核信息
 
-	@Schema(description = "审核信息")
-	private String auditMessage;			// 审核信息
-
-	// 扩展的属性，用来封装响应的数据
-	@Schema(description = "品牌名称")
-	private String brandName;				// 品牌
-
-	@Schema(description = "一级分类名称")
-	private String category1Name;			// 一级分类
-
-	@Schema(description = "二级分类名称")
-	private String category2Name;			// 二级分类
-
-	@Schema(description = "三级分类名称")
-	private String category3Name;			// 三级分类
-
-	@Schema(description = "sku列表集合")
-	private List<ProductSku> productSkuList;		// sku列表集合
-
-	@Schema(description = "图片详情列表")
-	private String detailsImageUrls;				// 图片详情列表
+    @Schema(description = "更新人")
+    @TableField("update_by")
+    private Long updateBy;
 
 }

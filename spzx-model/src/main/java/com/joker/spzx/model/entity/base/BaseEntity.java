@@ -1,27 +1,34 @@
 package com.joker.spzx.model.entity.base;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.extension.activerecord.Model;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
-import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Data
-public class BaseEntity implements Serializable {
+public class BaseEntity extends Model<BaseEntity> {
 
     @Schema(description = "唯一标识")
+    @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @Schema(description = "创建时间")
-    private Date createTime;
+    @TableField("create_time")
+    private LocalDateTime createTime;
 
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    @Schema(description = "修改时间")
-    private Date updateTime;
+    @Schema(description = "更新时间")
+    @TableField("update_time")
+    private LocalDateTime updateTime;
 
     @Schema(description = "是否删除")
+    @TableField("is_deleted")
     private Integer isDeleted;
 
 }
